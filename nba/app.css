@@ -1,0 +1,17 @@
+.pink {
+    background: rgba(255, 0, 0, 20%);
+}
+
+.green {
+    background: rgba(0, 128, 0, 20%);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    border: 2px solid gold;
+    margin-bottom: 15px;
+}

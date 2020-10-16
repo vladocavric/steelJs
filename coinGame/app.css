@@ -1,0 +1,24 @@
+img {
+	width: 100px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.score {
+	position: fixed;
+	right: 70px;
+	/* left: 90%; */
+	padding: 20px 60px;
+}
+
+.score img {
+	width: 40px;
+
+}
+
+#score {
+	font-size: 23px;
+	color: goldenrod;
+	font-weight: 600;
+}

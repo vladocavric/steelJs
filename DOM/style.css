@@ -1,0 +1,32 @@
+.todo {
+    color: brown;
+    font-size: 30px;   
+}
+
+.inserted {
+    color: blue;
+}
+
+.done {
+    color: gray;
+    opacity: 50%;
+    text-decoration: line-through;
+}
+
+.red {
+    background: red;
+}
+
+img {
+    max-width: 100%;
+}
+
+.veggies {
+    background: wheat;
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+i, b {
+    color: orange;
+}
