@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+h1 {
+    z-index: 1000;
+    width: 100%;
+    color: green;
+    background-color: aquamarine;
+    padding: 30px;
+    text-align: center;
+    position: fixed;
+}
+
+.d-none {
+    display: none;
+}
