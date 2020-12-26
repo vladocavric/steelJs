@@ -3,7 +3,8 @@ const express = require('express')
 const app = express();
 const ejs = require('ejs')
 const bodyParser = require('body-parser')
-const {addUser} = require('./users')
+// const {addUser} = require('./users')
+const usersRepo = require('./repositories/users')
 
 
 app.set('view engine', 'ejs');
@@ -15,14 +16,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/sign-up', (req, res) => {
-    // console.log(req.body)
-    
     res.render('signUp');
 })
 
-app.post('/sign-up', (req, res) => {
-    addUser(req.body.email, req.body.password)  
-    res.redirect('/');
+app.post('/sign-up', async (req, res) => {
+    const {email, password, confirmPassword} = req.body
+    const existingUser = await usersRepo.getOneBy({email})
+    if (existingUser) {
+        res.send('Email already in use')
+    } 
+    if (password !== confirmPassword) {
+        res.send('Please check password')
+    }
+    res.send('Account created')
 })
 
 app.get('/sign-in', (req, res) => {
