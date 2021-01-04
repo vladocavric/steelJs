@@ -15,18 +15,17 @@ module.exports = class Repositoriy {
     }
     async getAll() {
         // Open the file called this.filename, parse the contents and return
-        try {
             return JSON.parse(await fs.promises.readFile(this.filename, {
                 encoding: 'utf8'
             }))
-        } catch {
-            console.log('nesto je poslo po zlu')
-        }
     }
     async getOne(id) {
-        const records = await this.getAll()
-        return records.find(record => record.id === id)
-    }
+        console.log(id)
+        const records = await this.getAll();
+        const item = records.find(record => record.id === id);
+        console.log(item)
+        return item
+      }
 
     async getOneBy(filters) {
         const records = await this.getAll()

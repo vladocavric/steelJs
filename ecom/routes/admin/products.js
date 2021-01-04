@@ -44,10 +44,16 @@ router.get('/admin/products/:id/edit', isSignIn, async (req, res) => {
     res.render('products/edit', {title, price, id, errors: []})
 })
 
-router.put('/admin/products/:id', isSignIn, upload.single('image'), [requirePrice, requireTitle], async (req, res) => {
+router.put('/admin/products/:id', isSignIn, upload.single('image'), [requirePrice, requireTitle], handleErrors('products/edit'), async (req, res) => {
     const attributes = req.body
-    const image = req.file.buffer.toString('base64')
-    const updatedProduct = await productsRepo.update(req.params.id, attributes)
+    if (req.file) {
+        const image = req.file.buffer.toString('base64')
+    }
+    try {
+        await productsRepo.update(req.params.id, attributes)
+    } catch {
+        return res.send('could not find item')
+    }
     res.redirect(`/admin/products`)
 })
 

@@ -145,6 +145,15 @@ body {
   align-items: center;
 }
 
-.d-flex {
-  display: flex;
+
+/* @media screen and (min-width: 769px) {
+.columns:not(.is-desktop) {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+} */
+
+.column {
+  align-self: stretch;
 }

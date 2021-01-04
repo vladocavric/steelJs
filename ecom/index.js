@@ -5,7 +5,9 @@ const ejs = require('ejs')
 const bodyParser = require('body-parser')
 const cookieSession = require('cookie-session')
 const authRoutes = require('./routes/admin/auth')
-const productRoutes = require('./routes/admin/products')
+const adminProductRoutes = require('./routes/admin/products')
+const productRoutes = require('./routes/products')
+const cartsRouter = require('./routes/carts')
 
 
 
@@ -16,11 +18,10 @@ app.use(cookieSession({
     keys: ['koji sam ja sebi kralj']
 }))
 app.use(authRoutes)
+app.use(adminProductRoutes)
 app.use(productRoutes)
+app.use(cartsRouter)
 
-app.get('/', (req, res) => {
-    res.render('index');
-})
 
 app.get('*', (req, res) => {
     res.send({message: '404 page not found'});
